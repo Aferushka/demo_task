@@ -1,0 +1,4 @@
+/demo_task_back/venv/
+/demo_task_back/.idea/
+/demo_task_back/demo_task/migrations/
+/demo_task_back/db.sqlite3
