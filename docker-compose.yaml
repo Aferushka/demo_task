@@ -1,0 +1,10 @@
+version: '2'
+services:
+  demo_back:
+    build: demo_task_back/.
+    container_name: demo_back
+    restart: always
+    volumes:
+      - ./code/static:/code/static
+    ports:
+      - "8000:8000"
