@@ -3,7 +3,8 @@ import {refreshPositions, setIsLoading} from '../actions';
 export function loadPositions() {
     return dispatch => {
         dispatch(setIsLoading(true));
-        fetch(`http://localhost:8000/positions/`)
+        alert(`http://`+ process.env.REACT_APP_API_HOST +`:8000/positions/`)
+        fetch(`http://`+ process.env.REACT_APP_API_HOST +`:8000/positions/`)
             .then(result => result.json())
             .then(positions => {
                 if (positions.error) {
