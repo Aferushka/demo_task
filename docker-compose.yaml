@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   demo_back:
     build: demo_task_back/.
@@ -8,3 +8,12 @@ services:
       - ./code/static:/code/static
     ports:
       - "8000:8000"
+
+  demo_front:
+    build: demo_task_front/.
+    depends_on:
+      - demo_back
+    container_name: demo_front
+    restart: always
+    ports:
+      - "80:3100"

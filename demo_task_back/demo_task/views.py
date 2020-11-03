@@ -1,11 +1,16 @@
 from rest_framework import viewsets
-from .models import Worker, Request
-from .serializers import WorkerSerializer, RequestBaseSerializer, RequestFullSerializer
+from .models import Worker, Request, Position
+from .serializers import WorkerSerializer, RequestBaseSerializer, RequestFullSerializer, PositionSerializer
 
 
 class WorkerViewSet(viewsets.ModelViewSet):
     queryset = Worker.objects.all()
     serializer_class = WorkerSerializer
+
+
+class PositionViewSet(viewsets.ModelViewSet):
+    queryset = Position.objects.all()
+    serializer_class = PositionSerializer
 
 
 class RequestViewSet(viewsets.ModelViewSet):

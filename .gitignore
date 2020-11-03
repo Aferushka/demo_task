@@ -1,4 +1,33 @@
+# DJANGO
 /demo_task_back/venv/
 /demo_task_back/.idea/
 /demo_task_back/demo_task/migrations/
 /demo_task_back/db.sqlite3
+
+
+#REACT
+/demo_task_front/.idea/
+# dependencies
+demo_task_front/node_modules
+demo_task_front/.pnp
+demo_task_front/.pnp.js
+
+# testing
+demo_task_front/coverage
+
+# production
+demo_task_front/build
+
+# tmp
+demo_task_front/tmp
+
+# misc
+demo_task_front/.DS_Store
+demo_task_front/.env.local
+demo_task_front/.env.development.local
+demo_task_front/.env.test.local
+demo_task_front/.env.production.local
+
+demo_task_front/npm-debug.log*
+demo_task_front/yarn-debug.log*
+demo_task_front/yarn-error.log*

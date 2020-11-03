@@ -6,7 +6,7 @@ from django.conf import settings
 class PositionSerializer(ModelSerializer):
     class Meta:
         model = Position
-        exclude = ['id']
+        fields = '__all__'
 
 
 class PositionToRequestSerializer(ModelSerializer):
@@ -14,7 +14,7 @@ class PositionToRequestSerializer(ModelSerializer):
 
     class Meta:
         model = PositionToRequest
-        exclude = ['id', 'request']
+        exclude = ['request']
 
 
 class WorkerSerializer(ModelSerializer):
@@ -42,6 +42,22 @@ class RequestBaseSerializer(ModelSerializer):
     class Meta:
         model = Request
         fields = ['id', 'name', 'created', 'deadline', 'status', 'positions', 'worker', 'resolution']
+
+    def to_internal_value(self, data):
+
+        created = data.get('created') or None
+        status = data.get('status') or None
+        worker = data.get('worker') or None
+        resolution = data.get('resolution') or None
+
+        return {
+            'name': data['name'],
+            'deadline': data['deadline'],
+            'created': created,
+            'status': status,
+            'worker': worker,
+            'resolution': resolution
+        }
 
 
 class RequestFullSerializer(RequestBaseSerializer):

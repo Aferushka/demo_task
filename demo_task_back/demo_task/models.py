@@ -91,11 +91,11 @@ class Request(models.Model):
     """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, verbose_name='Наименование запроса', default='-')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания', blank=True, null=True)
     deadline = models.DateField(verbose_name='Крайний срок отчета', blank=True, null=True)
-    status = models.CharField(max_length=30, choices=Status.choices, verbose_name='Статус', default='CREATED')
+    status = models.CharField(max_length=30, choices=Status.choices, verbose_name='Статус', default='CREATED', blank=True, null=True)
     worker = models.ForeignKey('Worker', on_delete=models.SET_NULL, blank=True, verbose_name='Исполнитель', null=True)
-    resolution = models.TextField(blank=True, verbose_name='Резолюция')
+    resolution = models.TextField(blank=True, verbose_name='Резолюция', null=True)
 
     def __str__(self):
         return f'{self.id}: {self.name}'
@@ -140,7 +140,7 @@ class History(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name='Дата изменения')
     status = models.CharField(max_length=30, choices=Status.choices, verbose_name='Статус', default='CREATED')
     worker = models.ForeignKey('Worker', on_delete=models.SET_NULL, blank=True, verbose_name='Исполнитель', null=True)
-    resolution = models.TextField(blank=True, verbose_name='Резолюция')
+    resolution = models.TextField(blank=True, verbose_name='Резолюция', null=True)
 
     class Meta:
         verbose_name = 'История запросов'
